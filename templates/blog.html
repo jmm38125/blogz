@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+              <h1>Build a blog</h1>
+
+
+  {% if tasks|length == 0 %}
+  <p>No blog entries yet</p>
+  {% else %}
+
+  
+        {% for task in tasks %}
+        
+            <h2><a href="{{ url_for('index4', id=task.id) }}">{{task.name}}</a></h2>
+            <p>{{task.body}}</p>
+        {% endfor %}
+
+  {% endif %}
+
+
+
+{% endblock %}
