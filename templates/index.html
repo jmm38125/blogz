@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+              <h1>Users</h1>
+
+
+  {% if users|length == 0 %}
+  <p>No users have registered yet</p>
+  {% else %}
+
+  
+        {% for user in users %}
+        
+            <h2><a href="{{ url_for('user_posts', id=user.id) }}">{{user.email}}</a></h2>
+            
+        {% endfor %}
+
+  {% endif %}
+
+
+
+{% endblock %}

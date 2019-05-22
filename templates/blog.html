@@ -2,7 +2,7 @@
 
 {% block content %}
 
-              <h1>Build a blog</h1>
+              <h1>Blogz</h1>
 
 
   {% if tasks|length == 0 %}
@@ -11,9 +11,11 @@
 
   
         {% for task in tasks %}
-        
-            <h2><a href="{{ url_for('index4', id=task.id) }}">{{task.name}}</a></h2>
-            <p>{{task.body}}</p>
+          
+          <h2><a href="/blog?id=<id>", id=task.id>{{task.name}}</a></h2>
+          <p>Written by: <a href="/user?id=<id>", id=user.id>{{task.owner.email}}</a></p>
+         
+         
         {% endfor %}
 
   {% endif %}

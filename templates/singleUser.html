@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+              <h1>{{user.email}}'s blog</h1>
+
+
+  {% if tasks|length == 0 %}
+  <p>No blog entries yet</p>
+  {% else %}
+
+  
+        {% for task in tasks %}
+          
+        
+          <span><h2><a href="{{ url_for('blog_post', id=task.id) }}">{{task.name}}</a></h2></span>
+          <h3>{{task.body}}</h3>
+          <span><p>Written by: <a href="{{ url_for('user_posts', id=user.id) }}">{{user.email}}</a></p></span>
+         
+        {% endfor %}
+
+  {% endif %}
+
+
+
+{% endblock %}
